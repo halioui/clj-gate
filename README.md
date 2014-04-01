@@ -1,4 +1,12 @@
 clj-gate
 ========
 
-Clojure gate.ac.uk wrapers
+Clojure http://gate.ac.uk/ wrapers
+
+Usage
+====
+Place gate.properties in project root
+
+```
+gate.home=[path to local gate dir]
+```
