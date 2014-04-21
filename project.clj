@@ -1,4 +1,4 @@
-(defproject gate-clj "0.5.0"
+(defproject clj-gate "0.5.1"
   :description "FIXME: write"
   :dependencies[[enlive "1.1.1"]
                 [commons-io "1.4"]
