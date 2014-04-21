@@ -1,18 +1,20 @@
 (ns gate.annotation
+  (:require [gate.document :as gdoc])
   (:import (gate Annotation AnnotationSet Document Utils)))
 
 
 (defn to-map
-  "Convert annotations to {:type type :values []} map"
-  [doc anns]
-  (reduce #(assoc %1
-                  (.getType %2)
-                  (conj
-                    (get %1 (.getType %2) #{})
-                    (annotation-value doc %2)))
-          {}
-          anns))
-
+  "Convert annotations to {:type type :values []} map
+  use val-function to extract value from annotation"
+  ([doc anns val-function]
+   (reduce #(assoc %1
+                   (.getType %2)
+                   (conj
+                     (get %1 (.getType %2) #{})
+                     (val-function %2)))
+           {}
+           anns))
+  ([doc anns] (to-map doc anns (partial (gdoc/text doc)))))
 
 (defn annotation-types 
   "GATE Javadoc. Get a set of java.lang.String objects representing all the annotation types present in this annotation set."
@@ -25,17 +27,6 @@
   ([document a-type] (.getAnnotations document a-type))
   ([document a-type a-name] (.get (.getAnnotations document a-type) a-name)))
   ;([document offset] (.get (.getAnnotations document) (long offset))))
-
-(defn to-map 
-  "Convert annotations to {:type type :values []} map"
-  [doc anns]
-  (reduce #(assoc %1 
-                  (.getType %2)
-                  (conj 
-                    (get %1 (.getType %2) #{})
-                    (Utils/cleanStringFor doc %2)))
-          {}
-          anns))
 
 (defn sorted-offsets [document] 
   "Return set of all offsets in the document. Good for sequential traversal of the document"
