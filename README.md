@@ -1,7 +1,7 @@
 clj-gate
 ========
 
-Clojure http://gate.ac.uk/ wrapers
+Clojure http://gate.ac.uk/ wrappers
 
 Usage
 ====
