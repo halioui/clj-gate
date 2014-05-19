@@ -26,7 +26,6 @@
   ([document] (.getAnnotations document))
   ([document a-type] (.getAnnotations document a-type))
   ([document a-type a-name] (.get (.getAnnotations document a-type) a-name)))
-  ;([document offset] (.get (.getAnnotations document) (long offset))))
 
 (defn sorted-offsets [document] 
   "Return set of all offsets in the document. Good for sequential traversal of the document"
