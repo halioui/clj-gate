@@ -3,7 +3,7 @@
   (:use [gate.document] :reload-all)
   (:use [gate.annotation] :reload-all)
   (:use [clojure.test]))
-
+(comment
 (deftest test-annotations-at-offset
   (let [d (build-document "title" "content AAA")
         doc-annotations (annotations d)]
@@ -14,3 +14,4 @@
           ngram-a2 (.getCovering (annotations d) "" (long 8) (long 8))]
       (is (= "n-gram" (.getType ngram-a1)))
       (is (= #{"n-gram", "test"} (.getAllTypes ngram-a2))))))
+  )

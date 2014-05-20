@@ -5,5 +5,6 @@
                 [commons-io "1.4"]
                 [commons-lang "2.3"]
                 [uk.ac.gate/gate-core "8.0"]
+                [midje "1.6.3"]
                 [org.apache.tika/tika-parsers "1.5"]
                 [org.clojure/clojure "1.6.0"]])
