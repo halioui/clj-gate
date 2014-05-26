@@ -1,4 +1,4 @@
-(ns gate.test.document-test
+(ns gate.document-test
   (:require [gate.document :refer :all]
             [midje.sweet :refer :all]
             [gate.controller :refer [gate-init]]
