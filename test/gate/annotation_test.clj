@@ -8,8 +8,14 @@
 
 (def dtxt (partial text document))
 
+(defn anns [aname] (-> document (annotations nil aname)))
+
 (facts "about retrieving annotations"
   (fact "get sorted annotations of a given type"
-    (map dtxt (-> document (annotations nil "Organization") sort-anns))
-      => ["EU" "Front" "UK Independence Party" "EU" "EU" "European Parliament"]))
-    
+    (map dtxt (sort-anns (anns "Organization")))
+      => ["EU" "Front" "UK Independence Party" "EU" "EU" "European Parliament"])
+  (fact "contained annotations"
+    (dtxt
+      (contained-annotations document (first (sort-anns (anns "Sentence"))) "Organization"))
+      => "EU"))
+

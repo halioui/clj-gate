@@ -30,6 +30,11 @@
   ([document a-type] (.getAnnotations document a-type))
   ([document a-type a-name] (.get (.getAnnotations document a-type) a-name)))
 
+(defn contained-annotations [document annotation ann-type]
+  (gate.Utils/getContainedAnnotations
+    (.getAnnotations document)
+    annotation ann-type))
+
 (defn sorted-offsets [document] 
   "Return set of all offsets in the document. Good for sequential traversal of the document"
   (apply sorted-set 
