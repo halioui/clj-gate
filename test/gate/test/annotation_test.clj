@@ -1,4 +1,4 @@
-(ns gate.test.annotation
+(ns gate.test.annotation-test
   (:import [gate Factory Utils])
   (:use [gate.document] :reload-all)
   (:use [gate.annotation] :reload-all)
