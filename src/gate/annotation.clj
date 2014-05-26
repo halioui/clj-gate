@@ -16,6 +16,9 @@
            anns))
   ([doc anns] (to-map doc anns (partial (gdoc/text doc)))))
 
+(defn sort-anns [anns]
+  (sort-by #(.. % getStartNode getOffset) anns))
+
 (defn annotation-types 
   "GATE Javadoc. Get a set of java.lang.String objects representing all the annotation types present in this annotation set."
   ([document] (.. document getAnnotations getAllTypes))

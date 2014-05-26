@@ -1,13 +1,15 @@
 (ns gate.annotation-test
-  (:import [gate Factory Utils])
-  (:use [gate.document] :reload-all)
-  (:use [gate.annotation] :reload-all)
-  (:use [clojure.test]))
+  (:require [midje.sweet :refer :all]
+            [gate.document :refer :all]
+            [gate.annotation :refer :all]))
 
 (gate.controller/gate-init)
-(def document (gdoc/build-doc (slurp "test/data/annotated.xml")))
+(def document (build-doc (slurp "test/data/annotated.xml")))
+
+(def dtxt (partial text document))
 
 (facts "about retrieving annotations"
   (fact "get sorted annotations of a given type"
-    (annotations document nil "Organization") => nil))
+    (map dtxt (-> document (annotations nil "Organization") sort-anns))
+      => ["EU" "Front" "UK Independence Party" "EU" "EU" "European Parliament"]))
     
