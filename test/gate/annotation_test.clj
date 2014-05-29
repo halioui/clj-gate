@@ -1,9 +1,11 @@
 (ns gate.annotation-test
   (:require [midje.sweet :refer :all]
+            [gate.controller :refer [gate-init]]
             [gate.document :refer :all]
             [gate.annotation :refer :all]))
 
-(gate.controller/gate-init)
+(gate-init)
+
 (def document (build-doc (slurp "test/data/annotated.xml")))
 
 (def dtxt (partial text document))
