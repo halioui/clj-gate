@@ -1,4 +1,3 @@
-;; Clojure Interface to GATE (General Architecture for Text Engineering)
 (ns gate.controller
   (:use environ.core
         gate.document
