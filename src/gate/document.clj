@@ -8,8 +8,8 @@
      (gate.util InvalidOffsetException)))
 
 (defn text
-  ([document annotation] (if annotation (Utils/stringFor document annotation) ""))
-  ([document] (Utils/stringFor document (Utils/start document) (Utils/end document))))
+  ([document annotation] (if annotation (Utils/cleanStringFor document annotation) ""))
+  ([document] (Utils/cleanStringFor document (Utils/start document) (Utils/end document))))
 
 (defn- clean[t] (-> (s/replace t #"\s+" " ") s/trim s/trim-newline))
 

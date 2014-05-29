@@ -4,7 +4,7 @@
             [gate.controller :refer [gate-init]]
             [clojure.java.io :refer :all]))
 
-(def txt (slurp "test/data/short.txt"))
+(def txt (clojure.string/trim (slurp "test/data/short.txt")))
 
 (gate-init)
 
