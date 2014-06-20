@@ -51,3 +51,9 @@
     (.clear (.getCorpus gapp))
     (delete-gate-resource document)
     results))
+
+(defn run-on-doc
+  [document gapp]
+  (.add (.getCorpus gapp) document)
+  (.execute gapp)
+  document)
