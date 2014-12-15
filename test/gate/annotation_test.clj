@@ -18,6 +18,8 @@
       => ["EU" "Front" "UK Independence Party" "EU" "EU" "European Parliament"])
   (fact "contained annotations"
     (dtxt
-      (contained-annotations document (first (sort-anns (anns "Sentence"))) "Organization"))
+      (contained-annotations (.getAnnotations document)
+                             (first (sort-anns (anns "Sentence")))
+                             "Organization"))
       => "EU"))
 

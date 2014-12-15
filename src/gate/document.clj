@@ -28,3 +28,5 @@
 (defmethod build-doc java.net.URL [f]
   (doto (Factory/newDocument (slurp f))
     (.setSourceUrl f)))
+
+(defn set-source-url [gate-doc url] (.setSourceUrl (java.net.URL. url)))
