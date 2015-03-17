@@ -17,6 +17,10 @@
   ([document annotation] (clean  (text document annotation)))
   ([document] (clean (text document (Utils/start document) (Utils/end document)))))
 
+(defn remove-all-annotations [document]
+  (.. document getAnnotations clear)
+  (doseq [as (.getAnnotationSetNames document)] (.removeAnnotationSet document as)))
+
 (defmulti build-doc class)
 
 (defmethod build-doc String [f] (Factory/newDocument f))

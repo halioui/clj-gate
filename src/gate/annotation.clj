@@ -4,17 +4,11 @@
 
 
 (defn to-map
-  "Convert annotations to {:type type :values []} map
-  use val-function to extract value from annotation"
-  ([doc anns val-function]
-   (reduce #(assoc %1
-                   (.getType %2)
-                   (conj
-                     (get %1 (.getType %2) #{})
-                     (val-function %2)))
-           {}
-           anns))
-  ([doc anns] (to-map doc anns (partial (gdoc/text doc)))))
+  "Convert Annotation to CLJ map"
+  [doc ann]
+  {:text (gdoc/text doc ann)
+   :type (.getType ann)
+   :features (into {} (.getFeatures ann))})
 
 (defn sort-anns [anns]
   (into [] (sort-by #(.. % getStartNode getOffset) anns)))

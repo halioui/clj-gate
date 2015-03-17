@@ -1,4 +1,4 @@
-(defproject clj-gate "0.5.2"
+(defproject clj-gate "0.5.3"
   :description "GATE embedded wrappers"
   :dependencies[[enlive "1.1.5"]
                 [environ "0.5.0"]

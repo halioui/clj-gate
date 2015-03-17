@@ -22,3 +22,9 @@
           (.getAnnotations "Original markups")
           count)
         => 6))
+
+(fact "about removing all annotations"
+  (let [document (build-doc (slurp "test/data/annotated.xml")) ]
+    (remove-all-annotations document)
+    (.getNamedAnnotationSets document) => {}
+    (.getAnnotations document) => #{}))

@@ -23,3 +23,11 @@
                              "Organization"))
       => "EU"))
 
+
+(fact "about converting annotation to map"
+  (to-map document (-> "Organization" anns sort-anns first))
+  =>
+  {:features  {"orgType" "other" "rule" "GazOrganization" "ruleFinal" "OrgFinal"}
+   :text "EU"
+   :type "Organization"})
+
