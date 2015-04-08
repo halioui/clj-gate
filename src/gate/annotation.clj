@@ -7,6 +7,8 @@
   "Convert Annotation to CLJ map"
   [doc ann]
   {:text (gdoc/text doc ann)
+   :start (-> ann .getStartNode .getOffset)
+   :end (-> ann .getEndNode .getOffset)
    :type (.getType ann)
    :features (into {} (.getFeatures ann))})
 
