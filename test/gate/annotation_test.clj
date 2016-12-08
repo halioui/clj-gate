@@ -27,8 +27,10 @@
 (fact "about converting annotation to map"
   (to-map document (-> "Organization" anns sort-anns first))
   =>
-  {:start 31 :end 33
-   :features  {"orgType" "other" "rule" "GazOrganization" "ruleFinal" "OrgFinal"}
+      {
+  {:features  {"orgType" "other" "rule" "GazOrganization" "ruleFinal" "OrgFinal"}
+   :start 31
+   :end 33
    :text "EU"
    :type "Organization"})
 
